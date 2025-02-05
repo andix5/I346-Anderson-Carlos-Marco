@@ -349,9 +349,9 @@ si nous détruisons un bucket S3 avec le nom d'une personne et que la personne l
 
 ### Quelle est la différence entre un Bucket S3 et Glacier ?
 
-* [Sources AWS]
+* [Sources AWS](https://managedserver.fr/aws-s3-et-aws-glacier-quelles-sont-les-diff%C3%A9rences/#La_differenza_di_prezzo_tra_Amazon_S3_e_Amazon_Glacier)
 
-[Votre réponse]
+S3 est conçu pour l'archivage à long terme des données qui doivent être disponibles rapidement, tandis que Glacier est spécifiquement conçu pour l'archivage à long terme des données rarement utilisées.
 
 ### Reprenez l'IAM "Policy" et expliquer ce que vous pouvez en déduire au niveau des droits qui vous sont alloués
 
