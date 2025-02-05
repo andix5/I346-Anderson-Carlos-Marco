@@ -33,7 +33,7 @@ Voici la "policy" qui vous a été attribuée:
                 "s3:GetObject",
                 "s3:DeleteObject",
             ],
-            "Resource": "arn:aws:s3:::devopsteam<XX>-i346/*" //XX -> devopsteam number
+            "Resource": "arn:aws:s3:::devopsteam01-i346/*" 
         }
     ]
 }
