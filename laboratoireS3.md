@@ -96,7 +96,7 @@ make_bucket: devopsteam99-i346
 
 ```
 [OUTPUT]
-//TODO
+
 ```
 
 * [La commande à réaliser pour effecuter l'action demandée]
@@ -355,3 +355,28 @@ S3 est conçu pour l'archivage à long terme des données qui doivent être disp
 ### Reprenez l'IAM "Policy" et expliquer ce que vous pouvez en déduire au niveau des droits qui vous sont alloués
 
 Consigne : Reprenez la "policy" et documenter chaque ligne
+
+```json
+{
+    "Version": "2012-10-17", //la date de la version
+    "Statement": [
+        {
+            "Effect": "Allow", //laisse un effet
+            "Action": "s3:ListAllMyBuckets", //list tout les buckets qui existe
+            "Resource": "arn:aws:s3:::*" //Cela désigne toutes les ressources dans le service Amazon S3
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "s3:GetObject",
+                "s3:DeleteObject",
+            ],
+            "Resource": "arn:aws:s3:::devopsteam01-i346/*" 
+        }
+    ]
+}
+```
+
+
+
