@@ -33,7 +33,7 @@ Voici la "policy" qui vous a été attribuée:
                 "s3:GetObject",
                 "s3:DeleteObject",
             ],
-            "Resource": "arn:aws:s3:::devopsteam<XX>-i346/*" //XX -> devopsteam number
+            "Resource": "arn:aws:s3:::devopsteam01-i346/*" 
         }
     ]
 }
@@ -88,26 +88,26 @@ make_bucket: devopsteam99-i346
 
 * [AWS Official Doc - Create Bucket](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/mb.html#examples)
 
-* [Vérifier l'état du bucket avant votre commande]()
+* [Vérifier l'état du bucket avant votre commande]
 
 ```bash
-aws s3 ls s3://devopsteam01-i346/
+//TODO
 ```
 
 ```
 [OUTPUT]
-An error occurred (AccessDenied) when calling the ListObjectsV2 operation: User: arn:aws:iam::709024702237:user/devopsteam01-i346 is not authorized to perform: s3:ListBucket on resource: "arn:aws:s3:::devopsteam01-i346" because no identity-based policy allows the s3:ListBucket action
+
 ```
 
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash
-aws s3 cp document.txt s3://devopsteam01-i346/
+//TODO
 ```
 
 ```
 [OUTPUT]
-The user-provided path document.txt does not exist.
+//TODO
 ```
 
 ### Uploader un répertoire
@@ -119,23 +119,23 @@ The user-provided path document.txt does not exist.
 * [Vérifier l'état du bucket avant votre commande]
 
 ```bash
-aws s3 ls | grep nom-du-bucket
+//TODO
 ```
 
 ```
 [OUTPUT]
-2025-01-27 22:28:02 devopsteam01-i346
+//TODO
 ```
 
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash
-aws s3 cp /bureau/I346/repertoire s3://devopsteam01-i346/ --recursive
+//TODO
 ```
 
 ```
 [OUTPUT]
-The user-provided path C:/Program Files/Git/bureau/I346/repertoire does not exist.
+//TODO
 ```
 
 ### Lister le contenu d'un "repertoire"
@@ -147,24 +147,23 @@ The user-provided path C:/Program Files/Git/bureau/I346/repertoire does not exis
 * [Vérifier l'état du bucket avant votre commande]
 
 ```bash
-aws s3 ls | grep nom-du-bucket
+//TODO
 ```
 
 ```
 [OUTPUT]
-2025-01-27 22:28:02 devopsteam01-i346
+//TODO
 ```
 
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash
-aws s3 ls s3://devopsteam01-i346/
+//TODO
 ```
 
 ```
 [OUTPUT]
-An error occurred (AccessDenied) when calling the ListObjectsV2 operation: User: arn:aws:iam::709024702237:user/devopsteam01-i346 is not authorized to perform: s3:ListBucket on resource: "arn:aws:s3:::devopsteam01-i346" because no identity-based policy allows the s3:ListBucket action
-
+//TODO
 ```
 
 ### Synchroniser un répertoire local de sa machine avec un bucket
@@ -176,19 +175,18 @@ An error occurred (AccessDenied) when calling the ListObjectsV2 operation: User:
 * [Vérifier l'état du bucket avant votre commande]
 
 ```bash
-aws s3 ls | grep nom-du-bucket
+//TODO
 ```
 
 ```
 [OUTPUT]
-2025-01-27 22:28:02 devopsteam01-i346
+//TODO
 ```
 
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash
-aws s3 sync /chemin/vers/repertoire-local s3://devopsteam01-i346/
-
+//TODO
 ```
 
 ```
@@ -205,18 +203,18 @@ aws s3 sync /chemin/vers/repertoire-local s3://devopsteam01-i346/
 * [Vérifier l'état du bucket avant votre commande]
 
 ```bash
-aws s3 ls | grep nom-du-bucket
+//TODO
 ```
 
 ```
 [OUTPUT]
-2025-01-27 22:28:02 devopsteam01-i346
+//TODO
 ```
 
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash
-aws s3 presign s3://devopsteam01-i346/rapport.pdf --expires-in 7200
+//TODO
 ```
 
 ```
@@ -344,17 +342,41 @@ Consigne : répondre en utilisant des sources officielles et en vous appuyant de
 
 ### Pourquoi est-il déconseillé de détruire un bucket S3 selon AWS ?
 
-* [Sources AWS]
-  https://docs.aws.amazon.com/fr_fr/AmazonS3/latest/userguide/delete-bucket.html
-[Votre réponse]
+* [Sources AWS](https://docs.aws.amazon.com/fr_fr/AmazonS3/latest/userguide/delete-bucket.html)
+
 si nous détruisons un bucket S3 avec le nom d'une personne et que la personne le recréer nous ne pouvons plus acceder au contenu de ce bucket.
 
 ### Quelle est la différence entre un Bucket S3 et Glacier ?
 
-* [Sources AWS]
+* [Sources AWS](https://managedserver.fr/aws-s3-et-aws-glacier-quelles-sont-les-diff%C3%A9rences/#La_differenza_di_prezzo_tra_Amazon_S3_e_Amazon_Glacier)
 
-[Votre réponse]
+S3 est conçu pour l'archivage à long terme des données qui doivent être disponibles rapidement, tandis que Glacier est spécifiquement conçu pour l'archivage à long terme des données rarement utilisées.
 
 ### Reprenez l'IAM "Policy" et expliquer ce que vous pouvez en déduire au niveau des droits qui vous sont alloués
 
 Consigne : Reprenez la "policy" et documenter chaque ligne
+
+```json
+{
+    "Version": "2012-10-17", //la date de la version
+    "Statement": [
+        {
+            "Effect": "Allow", //laisse un effet
+            "Action": "s3:ListAllMyBuckets", //list tout les buckets qui existe
+            "Resource": "arn:aws:s3:::*" //Cela désigne toutes les ressources dans le service Amazon S3
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "s3:GetObject",
+                "s3:DeleteObject",
+            ],
+            "Resource": "arn:aws:s3:::devopsteam01-i346/*" 
+        }
+    ]
+}
+```
+
+
+
