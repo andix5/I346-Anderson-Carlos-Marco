@@ -88,26 +88,26 @@ make_bucket: devopsteam99-i346
 
 * [AWS Official Doc - Create Bucket](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/mb.html#examples)
 
-* [Vérifier l'état du bucket avant votre commande]
+* [Vérifier l'état du bucket avant votre commande]()
 
 ```bash
-//TODO
+aws s3 ls s3://devopsteam01-i346/
 ```
 
 ```
 [OUTPUT]
-//TODO
+An error occurred (AccessDenied) when calling the ListObjectsV2 operation: User: arn:aws:iam::709024702237:user/devopsteam01-i346 is not authorized to perform: s3:ListBucket on resource: "arn:aws:s3:::devopsteam01-i346" because no identity-based policy allows the s3:ListBucket action
 ```
 
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash
-//TODO
+aws s3 cp document.txt s3://devopsteam01-i346/
 ```
 
 ```
 [OUTPUT]
-//TODO
+The user-provided path document.txt does not exist.
 ```
 
 ### Uploader un répertoire
@@ -119,23 +119,23 @@ make_bucket: devopsteam99-i346
 * [Vérifier l'état du bucket avant votre commande]
 
 ```bash
-//TODO
+aws s3 ls | grep nom-du-bucket
 ```
 
 ```
 [OUTPUT]
-//TODO
+2025-01-27 22:28:02 devopsteam01-i346
 ```
 
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash
-//TODO
+aws s3 cp /bureau/I346/repertoire s3://devopsteam01-i346/ --recursive
 ```
 
 ```
 [OUTPUT]
-//TODO
+The user-provided path C:/Program Files/Git/bureau/I346/repertoire does not exist.
 ```
 
 ### Lister le contenu d'un "repertoire"
@@ -147,23 +147,24 @@ make_bucket: devopsteam99-i346
 * [Vérifier l'état du bucket avant votre commande]
 
 ```bash
-//TODO
+aws s3 ls | grep nom-du-bucket
 ```
 
 ```
 [OUTPUT]
-//TODO
+2025-01-27 22:28:02 devopsteam01-i346
 ```
 
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash
-//TODO
+aws s3 ls s3://devopsteam01-i346/
 ```
 
 ```
 [OUTPUT]
-//TODO
+An error occurred (AccessDenied) when calling the ListObjectsV2 operation: User: arn:aws:iam::709024702237:user/devopsteam01-i346 is not authorized to perform: s3:ListBucket on resource: "arn:aws:s3:::devopsteam01-i346" because no identity-based policy allows the s3:ListBucket action
+
 ```
 
 ### Synchroniser un répertoire local de sa machine avec un bucket
@@ -175,18 +176,19 @@ make_bucket: devopsteam99-i346
 * [Vérifier l'état du bucket avant votre commande]
 
 ```bash
-//TODO
+aws s3 ls | grep nom-du-bucket
 ```
 
 ```
 [OUTPUT]
-//TODO
+2025-01-27 22:28:02 devopsteam01-i346
 ```
 
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash
-//TODO
+aws s3 sync /chemin/vers/repertoire-local s3://devopsteam01-i346/
+
 ```
 
 ```
@@ -203,18 +205,18 @@ make_bucket: devopsteam99-i346
 * [Vérifier l'état du bucket avant votre commande]
 
 ```bash
-//TODO
+aws s3 ls | grep nom-du-bucket
 ```
 
 ```
 [OUTPUT]
-//TODO
+2025-01-27 22:28:02 devopsteam01-i346
 ```
 
 * [La commande à réaliser pour effecuter l'action demandée]
 
 ```bash
-//TODO
+aws s3 presign s3://devopsteam01-i346/rapport.pdf --expires-in 7200
 ```
 
 ```
